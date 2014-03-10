@@ -1,3 +1,13 @@
+/*
+ BddRunner.java
+
+ Copyright (c) 2014 KazushigeSasaki
+
+ This software is released under the MIT License.
+
+ http://opensource.org/licenses/mit-license.php
+
+ */
 package jp.gr.java_conf.kazsharp.pretendbdd;
 
 import org.junit.runners.BlockJUnit4ClassRunner;
@@ -16,7 +26,7 @@ import org.junit.runners.model.InitializationError;
  * &#064;RunWith(BddRunner.class)
  * public class MyTest {
  *
- *   &#064;Test
+ * 	&#064;Test
  *   &#064;Bdd(&quot;テストケースの説明&quot;)
  *   public void test1() {
  *     ・・・
