@@ -15,7 +15,10 @@ PretendBDDはJUnitのテストクラスでBDDのようにケースを書くた�
       @Test
       @Bdd("テストケースの説明をここに書く")
       public void test1() {
-        ・・・
+        //Write JUnit test code here.
       }
     }
 ```
+
+## LICENSE
+This software is released under the MIT License, see LICENSE.txt.
