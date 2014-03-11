@@ -1,7 +1,9 @@
 ## PretendBDDとは？
 
-PretendBDDはJUnitのテストクラスでBDDのようにケースを書くためのJavaライブラリです。
-具体的には**@Bdd**アノテーションにケースの説明を書くことでBDDっぽい記述を可能にします。
+PretendBDDの意味は「なんちゃってBDD」です。
+JUnitのテストクラスでBDDのようにケースを書くためのJavaライブラリですが、
+具体的には**@Bdd**アノテーションにケースの説明を書くことで
+メソッド名を動的に変更するだけです。
 
 ## インストール
 ### Mavenの場合
@@ -16,7 +18,7 @@ PretendBDDはJUnitのテストクラスでBDDのようにケースを書くた�
 ```
 
 ### Maven以外の場合
-pretendbdd-x.x.jarとjunit-4.11.jar、hamcrest-core-1.3.jarをクラスパスに通してください。
+pretendbdd-x.x.jarとjunitのjarファイルをクラスパスに通してください。
 
 
 ## 使い方
