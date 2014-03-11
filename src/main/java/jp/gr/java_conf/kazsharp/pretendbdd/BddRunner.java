@@ -51,7 +51,7 @@ public class BddRunner extends BlockJUnit4ClassRunner {
 	static {
 		InputStream in = null;
 		try {
-			in = BddRunner.class.getResourceAsStream("bddconf.properties");
+			in = BddRunner.class.getResourceAsStream("/bddconf.properties");
 			if (in != null) {
 				Properties prop = new Properties();
 				prop.load(in);
