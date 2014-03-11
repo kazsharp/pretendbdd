@@ -10,6 +10,9 @@
  */
 package jp.gr.java_conf.kazsharp.pretendbdd;
 
+import java.io.InputStream;
+import java.util.Properties;
+
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
@@ -43,6 +46,29 @@ import org.junit.runners.model.InitializationError;
  */
 public class BddRunner extends BlockJUnit4ClassRunner {
 
+	private static boolean executeBdd = false;
+
+	static {
+		InputStream in = null;
+		try {
+			in = BddRunner.class.getResourceAsStream("bddconf.properties");
+			if (in != null) {
+				Properties prop = new Properties();
+				prop.load(in);
+				executeBdd = Boolean.parseBoolean(prop.getProperty("bdd"));
+			}
+		} catch (Throwable t) {
+			t.printStackTrace();
+		} finally {
+			if (in != null) {
+				try {
+					in.close();
+				} catch (Exception e) {
+				}
+			}
+		}
+	}
+
 	/*
 	 * (非 Javadoc)
 	 *
@@ -52,13 +78,16 @@ public class BddRunner extends BlockJUnit4ClassRunner {
 	 */
 	@Override
 	protected String testName(FrameworkMethod method) {
-		// 引数で与えられたメソッドにBddアノテーションがあればその値をメソッド名として返す。
-		Bdd an = method.getAnnotation(Bdd.class);
-		if (an != null) {
-			return an.value();
-		} else {
-			return method.getName();
+
+		// BDDモードがtrue
+		if (executeBdd) {
+			// 引数で与えられたメソッドにBddアノテーションがあればその値をメソッド名として返す。
+			Bdd an = method.getAnnotation(Bdd.class);
+			if (an != null) {
+				return an.value();
+			}
 		}
+		return method.getName();
 	}
 
 	/**
